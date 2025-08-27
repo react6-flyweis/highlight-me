@@ -1,9 +1,9 @@
-// import { lazy } from "react";
+import { lazy } from "react";
 import type { RouteObject } from "react-router";
 
-// import NotFoundPage from "./pages/Notfound";
+import NotFoundPage from "./pages/NotFound";
 
-// const HomePage = lazy(() => import("./pages/Home/Home"));
+const HomePage = lazy(() => import("./pages/Home/Home"));
 
 export const authRoutes: RouteObject[] = [
   {
@@ -27,7 +27,7 @@ export const authRoutes: RouteObject[] = [
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: <>Home</>,
+    element: <HomePage />,
   },
   {
     path: "*",
