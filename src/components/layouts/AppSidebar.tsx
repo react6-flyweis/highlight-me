@@ -40,7 +40,7 @@ export type SidebarItem = {
 export type AppSidebarProps = React.ComponentProps<typeof Sidebar>;
 
 const navigationItems: SidebarItem[] = [
-  { title: "Home", icon: "category.svg", url: "/" },
+  { title: "Dashboard", icon: "category.svg", url: "/" },
   {
     title: "User Management",
     icon: "users.svg",
@@ -53,6 +53,46 @@ const navigationItems: SidebarItem[] = [
         url: "/users/reported",
       },
     ],
+  },
+  {
+    title: "Post Moderation",
+    icon: "inbox.svg",
+    url: "/moderation",
+  },
+  {
+    title: "Contests & Prizes",
+    icon: "trophy.svg",
+    url: "/contests",
+  },
+  {
+    title: "Analytics & Reports",
+    icon: "file-analytics.svg",
+    url: "/analytics",
+  },
+  {
+    title: "Hashtags & Category",
+    icon: "clipboard-list.svg",
+    url: "/hashtags-category",
+  },
+  {
+    title: "Moderation Tools",
+    icon: "category.svg",
+    url: "/tools",
+  },
+  {
+    title: "App Settings",
+    icon: "settings.svg",
+    url: "/settings",
+  },
+  {
+    title: "Security & Logs",
+    icon: "shield-lock.svg",
+    url: "/security",
+  },
+  {
+    title: "Support & Feedback",
+    icon: "hours-24.svg",
+    url: "/support",
   },
 ];
 
@@ -108,11 +148,7 @@ export function AppSidebar({ ...props }: AppSidebarProps) {
                           </TooltipContent>
                         </Tooltip>
                       ) : (
-                        <SidebarMenuButton
-                          className={cn("pl-5 flex-1 text-left")}
-                          isActive={false}
-                          size="lg"
-                        >
+                        <SidebarMenuButton isActive={false} size="lg">
                           <img
                             alt={item.title}
                             className="max-h-5 max-w-5 flex-shrink-0 transition-all duration-300"
