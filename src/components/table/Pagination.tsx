@@ -1,6 +1,7 @@
 import type { Table } from "@tanstack/react-table";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ExportCSVButton } from "@/components/table/ExportCSVButton";
 
 import {
   Select,
@@ -17,6 +18,7 @@ interface DataTablePaginationProps<TData> {
 export function DataTablePagination<TData>({
   table,
 }: DataTablePaginationProps<TData>) {
+  const pageIndex = table.getState().pagination.pageIndex;
   const pageSize = table.getState().pagination.pageSize;
 
   return (
@@ -40,6 +42,11 @@ export function DataTablePagination<TData>({
             </SelectContent>
           </Select>
         </div>
+        <ExportCSVButton
+          rows={table.getFilteredRowModel().rows}
+          filename={`export-page-${pageIndex + 1}.csv`}
+          className="flex items-center gap-2 h-7 rounded-xl"
+        />
       </div>
       <div className="flex gap-2 items-center">
         <div className="ml-2 flex-1 text-muted-foreground font-semibold text-sm">
