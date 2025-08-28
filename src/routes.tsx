@@ -4,6 +4,7 @@ import type { RouteObject } from "react-router";
 import NotFoundPage from "./pages/NotFound";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
+const UsersPage = lazy(() => import("./pages/UserManagement/Users"));
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
@@ -25,6 +26,10 @@ export const routes: RouteObject[] = [
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/users",
+    element: <UsersPage />,
   },
   {
     path: "*",
