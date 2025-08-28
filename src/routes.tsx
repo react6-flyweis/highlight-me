@@ -5,7 +5,7 @@ import NotFoundPage from "./pages/NotFound";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
-const RegisterPage = lazy(() => import("./pages/Auth/Login")); // TODO: replace with actual register page
+const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
