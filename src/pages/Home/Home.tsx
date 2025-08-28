@@ -1,16 +1,148 @@
-import React from "react";
+import { StatCard } from "@/components/StatCard";
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
-    <div className="bg-[#e6f4f5] rounded-lg p-5 my-4 flex flex-col justify-center">
-      <h1 className="text-lg font-medium  m-0">
-        Welcome Back, Community Admin
-      </h1>
-      <p className="mt-2">
-        Here’s a quick overview of your community activity and moderation needs
-      </p>
-    </div>
-  );
-};
+    <section className="flex flex-col gap-5">
+      <div className="bg-[#e6f4f5] rounded-lg p-5 my-0 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="text-lg font-medium m-0">
+            Welcome Back, Community Admin
+          </h1>
+          <p className="mt-2 text-sm">
+            Here’s a quick overview of your community activity and moderation
+            needs
+          </p>
+        </div>
+      </div>
 
-export default Home;
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatCard
+          title="Total Users"
+          value="2,450"
+          sub="+18% from last month"
+          iconSrc="/icons/users.svg"
+          iconAlt="users"
+        />
+
+        <StatCard
+          title="Total Posts"
+          value="18,230"
+          sub="+18% from last month"
+          iconSrc="/icons/clipboard-list.svg"
+          iconAlt="posts"
+        />
+
+        <StatCard
+          title="Flagged Posts"
+          value="124"
+          sub="Required immediate review"
+          iconSrc="/icons/message-report.svg"
+          iconAlt="flagged"
+        />
+
+        <StatCard
+          title="Running Contests"
+          value="3"
+          sub="Engage your community"
+          iconSrc="/icons/trophy.svg"
+          iconAlt="contests"
+        />
+      </div>
+
+      <div className="bg-white rounded-lg p-5 border">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base font-medium m-0">Recent Activity</h2>
+
+          <div className="flex items-center gap-2">
+            <button className="px-3 py-1 rounded-full bg-gradient-to-r from-[#cfeff0] to-[#e6f4f5] text-sm text-gray-800">
+              All
+            </button>
+            <button className="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-700">
+              Recent
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-sm">
+            <thead>
+              <tr className="text-left text-xs text-gray-500 border-b">
+                <th className="py-3 px-4">ITEM</th>
+                <th className="py-3 px-4">TYPE</th>
+                <th className="py-3 px-4">LAST UPDATED</th>
+                <th className="py-3 px-4">STATUS</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr className="">
+                <td className="py-4 px-4">User Onboarding flow</td>
+                <td className="py-4 px-4 text-gray-600">Workflow</td>
+                <td className="py-4 px-4 text-gray-600">2 hours ago</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
+                    Completed
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="py-4 px-4">New Product announcement</td>
+                <td className="py-4 px-4 text-gray-600">Post</td>
+                <td className="py-4 px-4 text-gray-600">Yesterday</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                    Draft
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="py-4 px-4">Q3 Performance</td>
+                <td className="py-4 px-4 text-gray-600">Analytics</td>
+                <td className="py-4 px-4 text-gray-600">3 days ago</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
+                    Generated
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="py-4 px-4">Summer photo Contest</td>
+                <td className="py-4 px-4 text-gray-600">Contest</td>
+                <td className="py-4 px-4 text-gray-600">1 week ago</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                    Active
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="py-4 px-4">Admin Panel customization</td>
+                <td className="py-4 px-4 text-gray-600">Settings</td>
+                <td className="py-4 px-4 text-gray-600">2 week ago</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                    Saved
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td className="py-4 px-4">Beta Tester</td>
+                <td className="py-4 px-4 text-gray-600">User Group</td>
+                <td className="py-4 px-4 text-gray-600">2 week ago</td>
+                <td className="py-4 px-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                    pending
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
