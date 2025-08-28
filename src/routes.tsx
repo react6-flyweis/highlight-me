@@ -4,16 +4,13 @@ import type { RouteObject } from "react-router";
 import NotFoundPage from "./pages/NotFound";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
+const LoginPage = lazy(() => import("./pages/Auth/Login"));
+const RegisterPage = lazy(() => import("./pages/Auth/Login")); // TODO: replace with actual register page
 
 export const authRoutes: RouteObject[] = [
-  {
-    path: "/login",
-    element: <>Login</>,
-  },
-  {
-    path: "/register",
-    element: <>Register</>,
-  },
+  { path: "/login", element: <LoginPage /> },
+  { path: "/register", element: <RegisterPage /> },
+
   // {
   //   path: '/forgot-password',
   //   element: <ForgotPasswordPage />,
