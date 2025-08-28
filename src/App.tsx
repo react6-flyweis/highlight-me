@@ -3,16 +3,17 @@ import { Suspense } from "react";
 import DashboardLayout from "./components/layouts/DashboardLayout";
 import { authRoutes, routes } from "./routes";
 import { LoadingScreen } from "./components/layouts/LoadingScreen";
+import AuthLayout from "./components/layouts/AuthLayout";
 
 function App() {
   return (
     <Suspense fallback={<LoadingScreen />}>
       <Routes>
-        {/* <Route element={<AuthLayout />}> */}
-        {authRoutes.map((route) => (
-          <Route element={route.element} key={route.path} path={route.path} />
-        ))}
-        {/* </Route> */}
+        <Route element={<AuthLayout />}>
+          {authRoutes.map((route) => (
+            <Route element={route.element} key={route.path} path={route.path} />
+          ))}
+        </Route>
 
         {/* Define your routes here */}
         <Route element={<DashboardLayout />}>
