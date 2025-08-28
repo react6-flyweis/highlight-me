@@ -30,7 +30,9 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
         <Checkbox
           className="rounded border-gray-400"
           checked={table.getIsAllRowsSelected()}
-          onCheckedChange={table.toggleAllRowsSelected}
+          onCheckedChange={(v) =>
+            table.toggleAllRowsSelected(v.toString() === "true")
+          }
         />
       </div>
     ),
@@ -39,7 +41,7 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
         <Checkbox
           className="rounded border-gray-400"
           checked={row.getIsSelected()}
-          onCheckedChange={row.toggleSelected}
+          onCheckedChange={(v) => row.toggleSelected(v.toString() === "true")}
         />
       </div>
     ),
