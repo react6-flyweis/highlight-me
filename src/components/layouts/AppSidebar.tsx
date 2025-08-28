@@ -46,7 +46,7 @@ const navigationItems: SidebarItem[] = [
     icon: "users.svg",
     url: "/users",
     items: [
-      { title: "View Users", icon: "eye.svg", url: "/users/view" },
+      { title: "View Users", icon: "eye.svg", url: "/users" },
       {
         title: "Reported Users",
         icon: "message-report.svg",
