@@ -1,4 +1,6 @@
 import { StatCard } from "@/components/StatCard";
+import { Table } from "@/components/ui/table";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
@@ -49,99 +51,103 @@ export default function Home() {
         />
       </div>
 
-      <div className="bg-white rounded-lg p-5 border">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-base font-medium m-0">Recent Activity</h2>
+      <div className="flex">
+        <div className="w-5/7">
+          <div className="justify-between mb-4">
+            <h2 className="text-base font-medium mb-2">Recent Activity</h2>
 
-          <div className="flex items-center gap-2">
-            <button className="px-3 py-1 rounded-full bg-gradient-to-r from-[#cfeff0] to-[#e6f4f5] text-sm text-gray-800">
-              All
-            </button>
-            <button className="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-700">
-              Recent
-            </button>
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList className="border p-0">
+                <TabsTrigger className=" w-20" value="all">
+                  All
+                </TabsTrigger>
+                <TabsTrigger className="w-20" value="recent">
+                  Recent
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
+          <div className="bg-white rounded-lg p-4 border">
+            <Table className="overflow-x-auto">
+              <thead>
+                <tr className="text-left font-semibold text-gray-500 border-b">
+                  <th className="py-3 px-4">ITEM</th>
+                  <th className="py-3 px-4">TYPE</th>
+                  <th className="py-3 px-4">LAST UPDATED</th>
+                  <th className="py-3 px-4">STATUS</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y">
+                <tr className="">
+                  <td className="py-4 px-4">User Onboarding flow</td>
+                  <td className="py-4 px-4 text-gray-600">Workflow</td>
+                  <td className="py-4 px-4 text-gray-600">2 hours ago</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
+                      Completed
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="py-4 px-4">New Product announcement</td>
+                  <td className="py-4 px-4 text-gray-600">Post</td>
+                  <td className="py-4 px-4 text-gray-600">Yesterday</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                      Draft
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="py-4 px-4">Q3 Performance</td>
+                  <td className="py-4 px-4 text-gray-600">Analytics</td>
+                  <td className="py-4 px-4 text-gray-600">3 days ago</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
+                      Generated
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="py-4 px-4">Summer photo Contest</td>
+                  <td className="py-4 px-4 text-gray-600">Contest</td>
+                  <td className="py-4 px-4 text-gray-600">1 week ago</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                      Active
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="py-4 px-4">Admin Panel customization</td>
+                  <td className="py-4 px-4 text-gray-600">Settings</td>
+                  <td className="py-4 px-4 text-gray-600">2 week ago</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                      Saved
+                    </span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="py-4 px-4">Beta Tester</td>
+                  <td className="py-4 px-4 text-gray-600">User Group</td>
+                  <td className="py-4 px-4 text-gray-600">2 week ago</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
+                      pending
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
           </div>
         </div>
-
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs text-gray-500 border-b">
-                <th className="py-3 px-4">ITEM</th>
-                <th className="py-3 px-4">TYPE</th>
-                <th className="py-3 px-4">LAST UPDATED</th>
-                <th className="py-3 px-4">STATUS</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              <tr className="">
-                <td className="py-4 px-4">User Onboarding flow</td>
-                <td className="py-4 px-4 text-gray-600">Workflow</td>
-                <td className="py-4 px-4 text-gray-600">2 hours ago</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
-                    Completed
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="py-4 px-4">New Product announcement</td>
-                <td className="py-4 px-4 text-gray-600">Post</td>
-                <td className="py-4 px-4 text-gray-600">Yesterday</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                    Draft
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="py-4 px-4">Q3 Performance</td>
-                <td className="py-4 px-4 text-gray-600">Analytics</td>
-                <td className="py-4 px-4 text-gray-600">3 days ago</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
-                    Generated
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="py-4 px-4">Summer photo Contest</td>
-                <td className="py-4 px-4 text-gray-600">Contest</td>
-                <td className="py-4 px-4 text-gray-600">1 week ago</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                    Active
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="py-4 px-4">Admin Panel customization</td>
-                <td className="py-4 px-4 text-gray-600">Settings</td>
-                <td className="py-4 px-4 text-gray-600">2 week ago</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                    Saved
-                  </span>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="py-4 px-4">Beta Tester</td>
-                <td className="py-4 px-4 text-gray-600">User Group</td>
-                <td className="py-4 px-4 text-gray-600">2 week ago</td>
-                <td className="py-4 px-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                    pending
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div className="w-2/7"></div>
       </div>
     </section>
   );
