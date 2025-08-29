@@ -9,6 +9,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
     posts: 190,
     status: "active",
+    role: "admin",
     createdAt: "2025-01-03T09:15:00.000Z",
   },
   {
@@ -18,7 +19,8 @@ export const allUsersData: UserItem[] = [
     email: "sharath.kumar@example.com",
     avatar: "https://randomuser.me/api/portraits/men/12.jpg",
     posts: 42,
-    status: "pending",
+    status: "blocked",
+    role: "user",
     createdAt: "2025-01-03T10:05:00.000Z",
   },
   {
@@ -28,7 +30,8 @@ export const allUsersData: UserItem[] = [
     email: "maya.patel@example.com",
     avatar: "https://randomuser.me/api/portraits/women/21.jpg",
     posts: 78,
-    status: "inactive",
+    status: "suspended",
+    role: "user",
     createdAt: "2025-01-02T14:30:00.000Z",
   },
   {
@@ -39,6 +42,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/men/45.jpg",
     posts: 5,
     status: "active",
+    role: "user",
     createdAt: "2025-02-11T08:45:00.000Z",
   },
   {
@@ -49,6 +53,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/women/19.jpg",
     posts: 12,
     status: "active",
+    role: "user",
     createdAt: "2025-03-22T11:00:00.000Z",
   },
   {
@@ -59,6 +64,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/men/33.jpg",
     posts: 34,
     status: "active",
+    role: "admin",
     createdAt: "2025-04-10T07:25:00.000Z",
   },
   {
@@ -68,7 +74,8 @@ export const allUsersData: UserItem[] = [
     email: "hannah.lee@example.com",
     avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     posts: 87,
-    status: "pending",
+    status: "blocked",
+    role: "user",
     createdAt: "2025-05-15T16:40:00.000Z",
   },
   {
@@ -78,7 +85,8 @@ export const allUsersData: UserItem[] = [
     email: "diego.fernandez@example.com",
     avatar: "https://randomuser.me/api/portraits/men/56.jpg",
     posts: 3,
-    status: "inactive",
+    status: "suspended",
+    role: "user",
     createdAt: "2025-06-01T12:10:00.000Z",
   },
   {
@@ -89,6 +97,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     posts: 210,
     status: "active",
+    role: "admin",
     createdAt: "2025-06-18T09:50:00.000Z",
   },
   {
@@ -99,6 +108,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/men/77.jpg",
     posts: 58,
     status: "active",
+    role: "user",
     createdAt: "2025-07-02T13:20:00.000Z",
   },
   {
@@ -108,7 +118,8 @@ export const allUsersData: UserItem[] = [
     email: "yara.haddad@example.com",
     avatar: "https://randomuser.me/api/portraits/women/12.jpg",
     posts: 27,
-    status: "pending",
+    status: "blocked",
+    role: "user",
     createdAt: "2025-07-19T18:05:00.000Z",
   },
   {
@@ -119,6 +130,7 @@ export const allUsersData: UserItem[] = [
     avatar: "https://randomuser.me/api/portraits/men/5.jpg",
     posts: 9,
     status: "active",
+    role: "user",
     createdAt: "2025-08-01T10:00:00.000Z",
   },
 ];

@@ -12,14 +12,15 @@ export interface UserItem {
   username: string;
   avatar: string;
   posts: number;
-  status: "active" | "inactive" | "pending";
+  status: "active" | "blocked" | "suspended";
+  role?: "user" | "admin";
   createdAt: string;
 }
 
-const statusColorMap = {
+export const statusColorMap = {
   active: "bg-green-400",
-  inactive: "bg-red-400",
-  pending: "bg-yellow-400",
+  blocked: "bg-red-400",
+  suspended: "bg-yellow-400",
 };
 
 export const allUsersColumn: ColumnDef<UserItem>[] = [
