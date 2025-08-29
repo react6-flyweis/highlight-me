@@ -1,6 +1,7 @@
 import type { ColumnDef, Row } from "@tanstack/react-table";
 import { EyeIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { Link } from "react-router";
 
 import { UserCell } from "../table/UserCell";
 import { Checkbox } from "../ui/checkbox";
@@ -52,7 +53,12 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
     accessorKey: "name",
     cell: (props: { row: Row<UserItem> }) => {
       const { username, avatar, name } = props.row.original;
-      return <UserCell avatar={avatar} username={username} name={name} />;
+      const id = props.row.original.id;
+      return (
+        <Link to={`/users/${id}`} className="block">
+          <UserCell avatar={avatar} username={username} name={name} />
+        </Link>
+      );
     },
   },
   {
