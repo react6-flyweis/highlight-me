@@ -57,7 +57,7 @@ const navigationItems: SidebarItem[] = [
   {
     title: "Post Moderation",
     icon: "inbox.svg",
-    url: "/moderation",
+    url: "/posts",
   },
   {
     title: "Contests & Prizes",
