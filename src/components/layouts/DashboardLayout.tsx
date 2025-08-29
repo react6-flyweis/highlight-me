@@ -46,7 +46,7 @@ export default function DashboardLayout() {
   return (
     <SidebarProvider defaultOpen={sidebarProps.defaultOpen}>
       <AppSidebar collapsible={sidebarProps.collapsible} />
-      <SidebarInset className="@container relative flex flex-1 flex-col">
+      <SidebarInset className="@container relative flex flex-1 flex-col bg-[#F6F6F7]">
         <Header />
         <div className="flex-1 p-5 md:px-8">
           {
