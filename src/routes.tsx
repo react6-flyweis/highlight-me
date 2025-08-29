@@ -5,6 +5,9 @@ import NotFoundPage from "./pages/NotFound";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const UsersPage = lazy(() => import("./pages/UserManagement/Users"));
+const ReportedUsersPage = lazy(
+  () => import("./pages/UserManagement/ReportedUsers")
+);
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
@@ -30,6 +33,10 @@ export const routes: RouteObject[] = [
   {
     path: "/users",
     element: <UsersPage />,
+  },
+  {
+    path: "/users/reported",
+    element: <ReportedUsersPage />,
   },
   {
     path: "*",
