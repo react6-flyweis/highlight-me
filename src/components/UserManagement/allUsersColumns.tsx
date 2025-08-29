@@ -62,6 +62,13 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
   {
     header: "Join Date",
     accessorKey: "createdAt",
+    // compare date-only portion (YYYY-MM-DD) against the filter value
+    filterFn: (row, columnId, filterValue: string) => {
+      const cell = row.getValue<string>(columnId);
+      if (!cell) return false;
+      const cellDate = new Date(cell).toISOString().slice(0, 10); // YYYY-MM-DD
+      return cellDate === filterValue;
+    },
     cell: ({ row }) => (
       <p className="space-x-1">
         <span>
@@ -77,6 +84,12 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
   {
     header: "Status",
     accessorKey: "status",
+    // accept UI values like 'blocked' by mapping them to underlying data values
+    filterFn: (row, columnId, filterValue: string) => {
+      if (!filterValue) return true;
+      const cell = row.getValue<string>(columnId);
+      return cell === filterValue;
+    },
     cell: ({ row }) => {
       const status = row.original.status;
       const statusColor = statusColorMap[status];
@@ -96,10 +109,15 @@ export const allUsersColumn: ColumnDef<UserItem>[] = [
   {
     header: "Action",
     id: "action",
-    cell: () => (
-      <Button size="icon" variant="ghost">
-        <EyeIcon className="size-5" />
-      </Button>
-    ),
+    cell: ({ row }) => {
+      const id = row.original.id;
+      return (
+        <Link to={`/users/profile/${id}`}>
+          <Button size="icon" variant="ghost">
+            <EyeIcon className="size-5" />
+          </Button>
+        </Link>
+      );
+    },
   },
 ];
