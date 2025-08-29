@@ -8,6 +8,9 @@ const UsersPage = lazy(() => import("./pages/UserManagement/Users"));
 const ReportedUsersPage = lazy(
   () => import("./pages/UserManagement/ReportedUsers")
 );
+const UserProfilePage = lazy(
+  () => import("./pages/UserManagement/UserProfile")
+);
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
@@ -37,6 +40,10 @@ export const routes: RouteObject[] = [
   {
     path: "/users/reported",
     element: <ReportedUsersPage />,
+  },
+  {
+    path: "/users/profile/:id",
+    element: <UserProfilePage />,
   },
   {
     path: "*",
