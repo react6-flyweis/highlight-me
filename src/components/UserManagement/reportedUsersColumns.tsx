@@ -1,33 +1,9 @@
 import type { ColumnDef, Row } from "@tanstack/react-table";
-import { EllipsisVerticalIcon } from "lucide-react";
-import { Button } from "../ui/button";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarTrigger,
-} from "../ui/menubar";
+
 import { UserCell } from "../table/UserCell";
 import { Checkbox } from "../ui/checkbox";
-
-export interface UserItem {
-  id: string;
-  name: string;
-  email: string;
-  username: string;
-  avatar: string;
-  posts: number;
-  status: "active" | "inactive" | "pending";
-  createdAt: string;
-}
-
-const statusColorMap = {
-  active: "bg-green-400",
-  inactive: "bg-red-400",
-  pending: "bg-yellow-400",
-};
+import { statusColorMap, type UserItem } from "./allUsersColumns";
+import { ActionMenu } from "./ActionMenu";
 
 export const reportedUsersColumns: ColumnDef<UserItem>[] = [
   {
@@ -98,35 +74,6 @@ export const reportedUsersColumns: ColumnDef<UserItem>[] = [
   {
     header: "Action",
     id: "action",
-    cell: () => (
-      <Menubar className="border-0 bg-transparent shadow-none">
-        <MenubarMenu>
-          <MenubarTrigger asChild>
-            <Button size="icon" variant="ghost">
-              <EllipsisVerticalIcon className="size-5" />
-            </Button>
-          </MenubarTrigger>
-          <MenubarContent className="text-center" align="end">
-            <MenubarItem>
-              <span>View</span>
-            </MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem>
-              <span>Block</span>
-            </MenubarItem>
-            <MenubarSeparator />
-
-            <MenubarItem>
-              <span>Suspend</span>
-            </MenubarItem>
-            <MenubarSeparator />
-
-            <MenubarItem>
-              <span>Warn</span>
-            </MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
-      </Menubar>
-    ),
+    cell: ({ row }) => <ActionMenu row={row} />,
   },
 ];
