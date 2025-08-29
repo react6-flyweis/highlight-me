@@ -77,8 +77,8 @@ function DataTableInner<TData, TValue>(
   useImperativeHandle(ref, () => table, [table]);
   const pageCount = table.getPageCount();
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden  border shadow-sm rounded-md">
+    <div className="space-y-4 ">
+      <div className="overflow-hidden  border shadow-sm rounded-md bg-white">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
