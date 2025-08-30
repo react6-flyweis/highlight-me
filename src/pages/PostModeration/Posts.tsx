@@ -1,8 +1,11 @@
 import { PageLayout } from "@/components/layouts/PageLayout";
-import { PostsBreadcrumb } from "@/components/UserManagement/PostsBreadcrumb";
-import { PostCard } from "@/components/UserManagement/PostCard";
-import { PostDetailDialog } from "@/components/UserManagement/PostDetailDialog";
+import { PostsNav } from "@/components/Posts/PostsNav";
+import { PostsFilters } from "@/components/Posts/PostsFilters";
+import { PostCard } from "@/components/Posts/PostCard";
+import { PostDetailDialog } from "@/components/Posts/PostDetailDialog";
 import { useMemo, useState, useEffect } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
 
 type Post = {
   id: string;
@@ -85,6 +88,7 @@ export default function Posts() {
   const [postsData, setPostsData] = useState<Post[]>([]);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   useEffect(() => {
     let mounted = true;
@@ -110,10 +114,41 @@ export default function Posts() {
     });
   }, [query, statusFilter, postsData]);
 
+  function toggleSelectAll(checked: boolean | "indeterminate") {
+    if (checked) {
+      setSelectedIds(posts.map((p) => p.id));
+    } else {
+      setSelectedIds([]);
+    }
+  }
+
+  function bulkApprove() {
+    if (selectedIds.length === 0) return;
+    setPostsData((prev) =>
+      prev.map((p) =>
+        selectedIds.includes(p.id) ? { ...p, status: "approved" } : p
+      )
+    );
+    console.log("bulk approve", selectedIds);
+    setSelectedIds([]);
+  }
+
+  function bulkReject() {
+    if (selectedIds.length === 0) return;
+    setPostsData((prev) =>
+      prev.map((p) =>
+        selectedIds.includes(p.id) ? { ...p, status: "removed" } : p
+      )
+    );
+    console.log("bulk reject", selectedIds);
+    setSelectedIds([]);
+  }
+
   return (
     <PageLayout title="Reported Posts">
-      <div className="flex items-center justify-between gap-4 mb-6">
-        <PostsBreadcrumb
+      <div className="flex flex-col gap-1 mb-5">
+        <PostsNav />
+        <PostsFilters
           query={query}
           onQueryChange={(v: string) => setQuery(v)}
           statusFilter={statusFilter}
@@ -126,6 +161,7 @@ export default function Posts() {
           <PostCard
             key={p.id}
             post={p}
+            selected={selectedIds.includes(p.id)}
             onApprove={(id) => console.log("approve", id)}
             onReject={(id) => console.log("reject", id)}
             onMore={(id) => {
@@ -138,6 +174,31 @@ export default function Posts() {
             }}
           />
         ))}
+      </div>
+
+      {/* bulk actions area */}
+      <div className="flex items-center gap-3 mt-4">
+        <div className="flex items-center gap-2">
+          <Checkbox
+            checked={selectedIds.length > 0}
+            onCheckedChange={(v) => toggleSelectAll(Boolean(v))}
+            aria-label="Select All"
+          />
+          <span className="text-sm text-muted-foreground">Select All</span>
+        </div>
+
+        <div className="ml-auto flex gap-2">
+          <Button className="rounded" variant="default" onClick={bulkApprove}>
+            Bulk Approve
+          </Button>
+          <Button
+            className="rounded"
+            variant="destructive"
+            onClick={bulkReject}
+          >
+            Bulk Reject
+          </Button>
+        </div>
       </div>
 
       <PostDetailDialog
