@@ -1,13 +1,7 @@
 import { Button } from "@/components/ui/button";
-import {
-  Eye,
-  Flag,
-  HeartIcon,
-  Pencil,
-  CheckCircle,
-  XCircle,
-} from "lucide-react";
+import { Eye, Flag, HeartIcon, Pencil, CheckCircle, XIcon } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type Post = {
   id: string;
@@ -22,15 +16,29 @@ type Post = {
 
 type Props = {
   post: Post;
+  selected?: boolean;
   onApprove?: (id: string) => void;
   onReject?: (id: string) => void;
   onMore?: (id: string) => void;
 };
 
-export function PostCard({ post, onApprove, onReject, onMore }: Props) {
+export function PostCard({
+  post,
+  selected,
+  onApprove,
+  onReject,
+  onMore,
+}: Props) {
   return (
-    <div className="overflow-hidden">
-      <div className="flex flex-col">
+    <div
+      className={cn(
+        "overflow-hidden",
+        selected && "ring-2 ring-primary/40 rounded-xl"
+      )}
+    >
+      <div
+        className={cn("flex flex-col", selected ? "bg-primary/5" : undefined)}
+      >
         {/* make the main card clickable to open details */}
         <div className="relative">
           {/* Use an <img> so the main image is visible and uses object-cover for proper cropping */}
@@ -68,7 +76,7 @@ export function PostCard({ post, onApprove, onReject, onMore }: Props) {
                   label: "Removed",
                   bg: "bg-red-100",
                   text: "text-red-800",
-                  Icon: XCircle,
+                  Icon: XIcon,
                 },
               };
 
@@ -117,7 +125,7 @@ export function PostCard({ post, onApprove, onReject, onMore }: Props) {
           <div className="flex items-center justify-between mt-4">
             <div className="flex items-center gap-1">
               <Button
-                className="bg-teal-500 text-white hover:bg-teal-600 rounded-md"
+                className="bg-teal-500 text-white hover:bg-teal-600 rounded"
                 onClick={(e) => {
                   e.stopPropagation();
                   onApprove?.(post.id);
@@ -126,7 +134,7 @@ export function PostCard({ post, onApprove, onReject, onMore }: Props) {
                 Approve
               </Button>
               <Button
-                className="bg-red-500 text-white hover:bg-red-600 rounded-md"
+                className="bg-red-500 text-white hover:bg-red-600 rounded"
                 onClick={(e) => {
                   e.stopPropagation();
                   onReject?.(post.id);
