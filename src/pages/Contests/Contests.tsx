@@ -166,6 +166,132 @@ export default function ContestsPage() {
           ))}
         </div>
       </Card>
+
+      {/* Two-column row: Winners list + Distribution summary */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+        {/* Winners list (left) */}
+        <Card className="p-4 gap-2 rounded">
+          <div className="flex items-start justify-between mb-4">
+            <div>
+              <h3 className="text-base font-semibold">Prize Management</h3>
+              <div className="text-sm text-muted-foreground mt-1">
+                Recent winners and their shipment status
+              </div>
+            </div>
+
+            <Button variant="ghost" className="text-primary">
+              <Plus className="mr-2 h-4 w-4" /> Upload winner
+            </Button>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                name: "Sarah",
+                note: "Most liked - Week 12",
+                status: "Delivered",
+                statusVariant: "default",
+                avatar:
+                  "https://randomuser.me/api/portraits/thumb/women/65.jpg",
+              },
+              {
+                name: "Julie",
+                note: "Most Commented - Week 10",
+                status: "Shipped",
+                statusVariant: "secondary",
+                avatar:
+                  "https://randomuser.me/api/portraits/thumb/women/44.jpg",
+              },
+              {
+                name: "Julie",
+                note: "Most Shared - Week 15",
+                status: "Pending",
+                statusVariant: "destructive",
+                avatar:
+                  "https://randomuser.me/api/portraits/thumb/women/12.jpg",
+              },
+            ].map((u, idx) => (
+              <div key={idx} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full overflow-hidden bg-muted flex items-center justify-center">
+                    <img
+                      src={u.avatar}
+                      alt="avatar"
+                      className="w-10 h-10 object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold">{u.name}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {u.note}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span
+                    className={
+                      "inline-block px-3 py-1 rounded text-xs " +
+                      (u.status === "Delivered"
+                        ? "bg-emerald-100 text-emerald-800"
+                        : u.status === "Shipped"
+                        ? "bg-sky-100 text-sky-800"
+                        : "bg-rose-100 text-rose-800")
+                    }
+                  >
+                    {u.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* Distribution summary (right) */}
+        <Card className="p-4 gap-2 rounded">
+          <div className="flex items-start justify-between mb-4">
+            <div>
+              <h3 className="text-base font-semibold">Prize Management</h3>
+              <div className="text-sm text-muted-foreground mt-1">
+                Shipment distribution overview
+              </div>
+            </div>
+
+            <Button variant="ghost" className="text-primary">
+              <Plus className="mr-2 h-4 w-4" /> Upload winner
+            </Button>
+          </div>
+
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">
+                Pending Shipment
+              </div>
+              <div className="font-semibold">8</div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">In-Transit</div>
+              <div className="font-semibold">12</div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">Delivered</div>
+              <div className="font-semibold">40</div>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">
+                Failed Delivery
+              </div>
+              <div className="font-semibold">2</div>
+            </div>
+
+            <div className="pt-4">
+              <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+                View Full Distribution Report
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </div>
     </PageLayout>
   );
 }
