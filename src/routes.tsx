@@ -12,6 +12,7 @@ const PostsPage = lazy(() => import("./pages/PostModeration/Posts"));
 const UserProfilePage = lazy(
   () => import("./pages/UserManagement/UserProfile")
 );
+const ContestsPage = lazy(() => import("./pages/Contests/Contests"));
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
@@ -49,6 +50,10 @@ export const routes: RouteObject[] = [
   {
     path: "/posts",
     element: <PostsPage />,
+  },
+  {
+    path: "/contests",
+    element: <ContestsPage />,
   },
   {
     path: "*",
