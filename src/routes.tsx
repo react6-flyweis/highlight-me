@@ -13,6 +13,7 @@ const UserProfilePage = lazy(
   () => import("./pages/UserManagement/UserProfile")
 );
 const ContestsPage = lazy(() => import("./pages/Contests/Contests"));
+const PrizeCriteriaPage = lazy(() => import("./pages/Contests/PrizeCriteria"));
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 
@@ -54,6 +55,10 @@ export const routes: RouteObject[] = [
   {
     path: "/contests",
     element: <ContestsPage />,
+  },
+  {
+    path: "/contests/prize-criteria",
+    element: <PrizeCriteriaPage />,
   },
   {
     path: "*",
