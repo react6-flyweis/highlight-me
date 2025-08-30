@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { CreateContestDialog } from "@/components/Contests/CreateContestDialog";
+import { useState } from "react";
 import { Plus, Download, EditIcon } from "lucide-react";
 import { PageLayout } from "@/components/layouts/PageLayout";
 import { ContestsNav } from "@/components/Contests/ContestsNav";
 import { StatCard } from "@/components/StatCard";
 
 export default function ContestsPage() {
+  const [createOpen, setCreateOpen] = useState(false);
+
   return (
     <PageLayout title="Contests & Prizes Management">
       <ContestsNav />
@@ -28,11 +32,13 @@ export default function ContestsPage() {
             <Button variant="outline">
               <EditIcon className="mr-2 h-4 w-4" /> Edit
             </Button>
-
-            <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              <span>New Contest</span>
-            </Button>
+            {/* Dialog trigger for creating a contest */}
+            <CreateContestDialog open={createOpen} onOpenChange={setCreateOpen}>
+              <Button>
+                <Plus className="mr-2 h-4 w-4" />
+                <span>New Contest</span>
+              </Button>
+            </CreateContestDialog>
           </div>
         </div>
 
