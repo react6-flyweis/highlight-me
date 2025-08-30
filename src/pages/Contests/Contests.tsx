@@ -3,12 +3,14 @@ import { Card } from "@/components/ui/card";
 import { CreateContestDialog } from "@/components/Contests/CreateContestDialog";
 import { useState } from "react";
 import { Plus, Download, EditIcon } from "lucide-react";
+import { EditContestDialog } from "@/components/Contests/EditContestDialog";
 import { PageLayout } from "@/components/layouts/PageLayout";
 import { ContestsNav } from "@/components/Contests/ContestsNav";
 import { StatCard } from "@/components/StatCard";
 
 export default function ContestsPage() {
   const [createOpen, setCreateOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
 
   return (
     <PageLayout title="Contests & Prizes Management">
@@ -28,10 +30,25 @@ export default function ContestsPage() {
             <Button variant="outline">
               <Download className="mr-2 h-4 w-4" /> Export
             </Button>
-
-            <Button variant="outline">
-              <EditIcon className="mr-2 h-4 w-4" /> Edit
-            </Button>
+            <EditContestDialog
+              open={editOpen}
+              onOpenChange={setEditOpen}
+              initialValues={{
+                title: "Weekly Contest",
+                startDate: "2025-08-08",
+                endDate: "2025-08-15",
+                participationCriteria: "public",
+                prizeTier: "tier1",
+                maxWinners: 3,
+                description: "Weekly highlight contest",
+                status: "active",
+              }}
+              onUpdate={(vals) => console.log("Updated contest:", vals)}
+            >
+              <Button variant="outline">
+                <EditIcon className="mr-2 h-4 w-4" /> Edit
+              </Button>
+            </EditContestDialog>
             {/* Dialog trigger for creating a contest */}
             <CreateContestDialog open={createOpen} onOpenChange={setCreateOpen}>
               <Button>
