@@ -16,6 +16,7 @@ const PostsManagementPage = lazy(
   () => import("./pages/PostManagement/PostsManagement")
 );
 const PostDetailPage = lazy(() => import("./pages/PostManagement/PostDetail"));
+const EditPostPage = lazy(() => import("./pages/PostManagement/EditPost"));
 const UserProfilePage = lazy(
   () => import("./pages/UserManagement/UserProfile")
 );
@@ -81,6 +82,9 @@ export const routes: RouteObject[] = [
     path: "/posts/:id",
     element: <PostDetailPage />,
   },
+  {
+    path: "/posts/:id/edit",
+    element: <EditPostPage />,
   },
   {
     path: "/contests",
