@@ -24,6 +24,7 @@ export default function Home() {
           sub="+18% from last month"
           iconSrc="/icons/users.svg"
           iconAlt="users"
+          to="/users"
         />
 
         <StatCard
@@ -32,6 +33,7 @@ export default function Home() {
           sub="+18% from last month"
           iconSrc="/icons/clipboard-list.svg"
           iconAlt="posts"
+          to="/posts"
         />
 
         <StatCard
