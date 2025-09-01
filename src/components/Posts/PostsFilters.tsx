@@ -11,13 +11,15 @@ import { Button } from "../ui/button";
 
 type Props = {
   query?: string;
-  onQueryChange?: (v: string) => void;
   statusFilter?: string;
+  flagged: boolean;
+  onQueryChange?: (v: string) => void;
   onStatusChange?: (v: string) => void;
 };
 
 export function PostsFilters({
   query = "",
+  flagged,
   onQueryChange = () => {},
   statusFilter = "all",
   onStatusChange = () => {},
@@ -54,6 +56,7 @@ export function PostsFilters({
           Date Range
         </Button>
         <Button
+          disabled={flagged}
           variant="outline"
           className="rounded-lg text-sm bg-white border shadow-sm"
         >
