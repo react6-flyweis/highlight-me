@@ -1,9 +1,7 @@
-import { PageLayout } from "@/components/layouts/PageLayout";
-import { PostsNav } from "@/components/Posts/PostsNav";
+import { useEffect, useMemo, useState } from "react";
 import { PostsFilters } from "@/components/Posts/PostsFilters";
 import { PostCard } from "@/components/Posts/PostCard";
 import { PostDetailDialog } from "@/components/Posts/PostDetailDialog";
-import { useMemo, useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
@@ -50,9 +48,7 @@ async function fetchDemoPosts(count = 9): Promise<Post[]> {
         u?.picture?.large ||
         undefined;
 
-      // Use a stable placeholder image service (picsum.photos) with seeded id
-      // so demo images are deterministic and reliably load in previews.
-      const seed = 100 + i; // small stable seed per item
+      const seed = 100 + i;
       const unsplashImage = `https://picsum.photos/seed/${seed}/800/600`;
 
       return {
@@ -75,16 +71,18 @@ async function fetchDemoPosts(count = 9): Promise<Post[]> {
       } as Post;
     });
   } catch (err) {
-    // fallback to local mock posts on error
-    // log the error so developers can debug network issues
     console.error("fetchDemoPosts error:", err);
     return [];
   }
 }
 
-export default function Posts() {
+export function PostModerationPanel({
+  flagged = false,
+}: {
+  flagged?: boolean;
+}) {
   const [query, setQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState(flagged ? "flagged" : "all");
   const [postsData, setPostsData] = useState<Post[]>([]);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -145,10 +143,10 @@ export default function Posts() {
   }
 
   return (
-    <PageLayout title="Reported Posts">
+    <div>
       <div className="flex flex-col gap-1 mb-5">
-        <PostsNav />
         <PostsFilters
+          flagged={flagged}
           query={query}
           onQueryChange={(v: string) => setQuery(v)}
           statusFilter={statusFilter}
@@ -176,7 +174,6 @@ export default function Posts() {
         ))}
       </div>
 
-      {/* bulk actions area */}
       <div className="flex items-center gap-3 mt-4">
         <div className="flex items-center gap-2">
           <Checkbox
@@ -214,6 +211,6 @@ export default function Posts() {
           setDialogOpen(false);
         }}
       />
-    </PageLayout>
+    </div>
   );
 }
