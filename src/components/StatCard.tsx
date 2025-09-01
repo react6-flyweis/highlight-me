@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export const StatCard: React.FC<{
   title: string;
@@ -6,8 +7,9 @@ export const StatCard: React.FC<{
   sub?: string;
   iconSrc?: string;
   iconAlt?: string;
-}> = ({ title, value, sub, iconSrc, iconAlt }) => {
-  return (
+  to?: string;
+}> = ({ title, value, sub, iconSrc, iconAlt, to }) => {
+  const content = (
     <div className="relative bg-white dark:bg-slate-800 rounded-lg shadow-sm p-4">
       {iconSrc && (
         <img
@@ -23,4 +25,18 @@ export const StatCard: React.FC<{
       </div>
     </div>
   );
+
+  if (to) {
+    return (
+      <Link
+        to={to}
+        className="block hover:shadow-md hover:scale-[1.01] transition-transform cursor-pointer"
+        aria-label={`Open ${title}`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 };
