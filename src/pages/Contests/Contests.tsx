@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { CreateContestDialog } from "@/components/Contests/CreateContestDialog";
 import { useState } from "react";
 import { Plus, Download, EditIcon, Trash2, Edit3Icon } from "lucide-react";
+import { Link } from "react-router";
 import { EditContestDialog } from "@/components/Contests/EditContestDialog";
 import { PageLayout } from "@/components/layouts/PageLayout";
 import { ContestsNav } from "@/components/Contests/ContestsNav";
@@ -179,9 +180,11 @@ export default function ContestsPage() {
               </div>
             </div>
 
-            <Button variant="ghost" className="text-primary">
-              <Plus className="mr-2 h-4 w-4" /> Upload winner
-            </Button>
+            <Link to="/contests/upload-winner">
+              <Button variant="ghost" className="text-primary">
+                <Plus className="mr-2 h-4 w-4" /> Upload winner
+              </Button>
+            </Link>
           </div>
 
           <div className="space-y-3">
@@ -257,9 +260,11 @@ export default function ContestsPage() {
               </div>
             </div>
 
-            <Button variant="ghost" className="text-primary">
-              <Plus className="mr-2 h-4 w-4" /> Upload winner
-            </Button>
+            <Link to="/contests/upload-winner">
+              <Button variant="ghost" className="text-primary">
+                <Plus className="mr-2 h-4 w-4" /> Upload winner
+              </Button>
+            </Link>
           </div>
 
           <div className="space-y-3">
