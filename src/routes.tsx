@@ -15,6 +15,7 @@ const FlaggedPostsPage = lazy(
 const PostsManagementPage = lazy(
   () => import("./pages/PostManagement/PostsManagement")
 );
+const PostDetailPage = lazy(() => import("./pages/PostManagement/PostDetail"));
 const UserProfilePage = lazy(
   () => import("./pages/UserManagement/UserProfile")
 );
@@ -75,6 +76,10 @@ export const routes: RouteObject[] = [
   {
     path: "/posts",
     element: <PostsManagementPage />,
+  },
+  {
+    path: "/posts/:id",
+    element: <PostDetailPage />,
   },
   },
   {
