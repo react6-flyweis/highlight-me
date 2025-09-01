@@ -40,6 +40,7 @@ export default function Home() {
           sub="Required immediate review"
           iconSrc="/icons/message-report.svg"
           iconAlt="flagged"
+          to="/posts/flagged"
         />
 
         <StatCard
