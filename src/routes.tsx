@@ -9,6 +9,9 @@ const ReportedUsersPage = lazy(
   () => import("./pages/UserManagement/ReportedUsers")
 );
 const PostsModerationPage = lazy(() => import("./pages/PostManagement/Posts"));
+const FlaggedPostsPage = lazy(
+  () => import("./pages/PostManagement/FaggedPosts")
+);
 const UserProfilePage = lazy(
   () => import("./pages/UserManagement/UserProfile")
 );
@@ -57,6 +60,10 @@ export const routes: RouteObject[] = [
   {
     path: "/users/profile/:id",
     element: <UserProfilePage />,
+  },
+  {
+    path: "/posts/flagged",
+    element: <FlaggedPostsPage />,
   },
   {
     path: "/posts",
