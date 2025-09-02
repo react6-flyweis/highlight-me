@@ -18,10 +18,12 @@ export const StatCard: React.FC<{
           className="absolute top-3 right-3 w-6 h-6"
         />
       )}
-      <div>
+      <div className="flex flex-col justify-between h-full">
         <p className="text-sm text-muted-foreground m-0">{title}</p>
-        <h3 className="text-2xl font-semibold mt-1 mb-0">{value}</h3>
-        {sub && <p className="text-xs text-muted-foreground mt-1">{sub}</p>}
+        <div className="">
+          <h3 className="text-2xl font-semibold mt-1 mb-0">{value}</h3>
+          {sub && <p className="text-xs text-muted-foreground mt-1">{sub}</p>}
+        </div>
       </div>
     </div>
   );
