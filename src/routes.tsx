@@ -39,6 +39,9 @@ const UserAnalyticsPage = lazy(() => import("./pages/Analytics/UserAnalytics"));
 const ContentAnalyticsPage = lazy(
   () => import("./pages/Analytics/ContentAnalytics")
 );
+const ContestAnalyticsPage = lazy(
+  () => import("./pages/Analytics/ContestAnalytics")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -134,6 +137,10 @@ export const routes: RouteObject[] = [
   {
     path: "/analytics/content",
     element: <ContentAnalyticsPage />,
+  },
+  {
+    path: "/analytics/contests",
+    element: <ContestAnalyticsPage />,
   },
   {
     path: "*",
