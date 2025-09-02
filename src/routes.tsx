@@ -35,6 +35,7 @@ const UploadConfirmationPage = lazy(
 const LoginPage = lazy(() => import("./pages/Auth/Login"));
 const RegisterPage = lazy(() => import("./pages/Auth/Register"));
 const AnalyticsPage = lazy(() => import("./pages/Analytics/Analytics"));
+const UserAnalyticsPage = lazy(() => import("./pages/Analytics/UserAnalytics"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -122,6 +123,10 @@ export const routes: RouteObject[] = [
   {
     path: "/analytics",
     element: <AnalyticsPage />,
+  },
+  {
+    path: "/analytics/users",
+    element: <UserAnalyticsPage />,
   },
   {
     path: "*",
