@@ -26,7 +26,15 @@ export function PostsByTypeDonut({
   id?: string;
   height?: number;
 }) {
-  const renderOuterLabel = (props) => {
+  type LabelProps = {
+    cx: number;
+    cy: number;
+    midAngle: number;
+    outerRadius: number;
+    payload: Slice;
+  };
+
+  const renderOuterLabel = (props: LabelProps) => {
     const { cx, cy, midAngle, outerRadius, payload } = props;
     const RADIAN = Math.PI / 180;
     const angle = -midAngle;
