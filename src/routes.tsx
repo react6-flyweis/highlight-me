@@ -45,6 +45,9 @@ const ContestAnalyticsPage = lazy(
 const HashtagsDashboard = lazy(
   () => import("./pages/Hashtags/HashtagsDashboard")
 );
+const HashtagsManagementPage = lazy(
+  () => import("./pages/Hashtags/HashtagsManagement")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -68,6 +71,10 @@ export const routes: RouteObject[] = [
   {
     path: "/hashtags/",
     element: <HashtagsDashboard />,
+  },
+  {
+    path: "/hashtags/management",
+    element: <HashtagsManagementPage />,
   },
   {
     path: "/users",
