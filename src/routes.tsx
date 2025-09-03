@@ -48,6 +48,9 @@ const HashtagsDashboard = lazy(
 const HashtagsManagementPage = lazy(
   () => import("./pages/Hashtags/HashtagsManagement")
 );
+const HashtagsCategoryPage = lazy(
+  () => import("./pages/Hashtags/HashtagsCategoryManagement")
+);
 const CreateTagPage = lazy(() => import("./pages/Hashtags/CreateTag"));
 const TagDetailsPage = lazy(() => import("./pages/Hashtags/TagDetails"));
 const EditTagPage = lazy(() => import("./pages/Hashtags/EditTag"));
@@ -90,6 +93,10 @@ export const routes: RouteObject[] = [
   {
     path: "/hashtags/management/edit/:id",
     element: <EditTagPage />,
+  },
+  {
+    path: "/hashtags/categories",
+    element: <HashtagsCategoryPage />,
   },
   {
     path: "/users",
