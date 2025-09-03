@@ -72,7 +72,7 @@ const navigationItems: SidebarItem[] = [
   {
     title: "Hashtags & Category",
     icon: "clipboard-list.svg",
-    url: "/hashtags-category",
+    url: "/hashtags",
   },
   {
     title: "Moderation Tools",
