@@ -3,7 +3,6 @@ import { PageLayout } from "@/components/layouts/PageLayout";
 
 import { allUsersColumn } from "@/components/UserManagement/allUsersColumns";
 import allUsersData from "@/components/UserManagement/allUsersData";
-import { UsersBreadcrumb } from "@/components/UserManagement/UsersBreadcrumb";
 import {
   Select,
   SelectTrigger,
@@ -13,13 +12,14 @@ import {
 } from "@/components/ui/select";
 import { useRef } from "react";
 import type { UserItem } from "@/components/UserManagement/allUsersColumns";
+import { UsersNav } from "@/components/UserManagement/usersNav";
 
 export default function AllUsers() {
   const tableRef = useRef<DataTableRef<UserItem> | null>(null);
   return (
     <PageLayout title="View Total Users">
       <div className="flex items-center justify-between gap-4 mb-6">
-        <UsersBreadcrumb />
+        <UsersNav />
 
         <div className="flex items-center gap-3">
           {/* Role filter (shadcn Select) */}

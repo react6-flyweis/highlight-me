@@ -9,7 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { UsersBreadcrumb } from "@/components/UserManagement/UsersBreadcrumb";
+import { UsersNav } from "@/components/UserManagement/usersNav";
 
 export default function UserProfile() {
   // Static sample data for now
@@ -27,7 +27,7 @@ export default function UserProfile() {
 
   return (
     <PageLayout title="User Profile">
-      <UsersBreadcrumb />
+      <UsersNav />
       <div className="grid grid-cols-12 gap-6">
         {/* Left column */}
         <div className="bg-white border rounded col-span-12 md:col-span-5 p-3">

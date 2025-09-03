@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-export function UsersBreadcrumb() {
+export function UsersNav() {
   return (
     <nav aria-label="breadcrumb" className="mb-4 text-sm text-slate-500">
       <ol className="flex gap-2 items-center">
