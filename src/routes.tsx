@@ -63,6 +63,9 @@ const ContentReviewPage = lazy(
 const ReportedContentPage = lazy(
   () => import("./pages/Moderation/ReportedContent")
 );
+const ModerationActionsPage = lazy(
+  () => import("./pages/Moderation/ModerationActions")
+);
 const KeywordsPage = lazy(() => import("./pages/Moderation/Keywords"));
 
 export const authRoutes: RouteObject[] = [
@@ -119,6 +122,10 @@ export const routes: RouteObject[] = [
   {
     path: "/tools/keywords",
     element: <KeywordsPage />,
+  },
+  {
+    path: "/tools/moderation-actions",
+    element: <ModerationActionsPage />,
   },
   {
     path: "/hashtags/categories",
