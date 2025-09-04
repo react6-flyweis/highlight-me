@@ -1,6 +1,9 @@
 import { StatCard } from "@/components/StatCard";
-import { Table } from "@/components/ui/table";
+import { RecentActivityTable } from "@/components/RecentActivityTable";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import contentModeration from "@/assets/images/content-moderation.png";
+import searchAnalysis from "@/assets/images/search-analysis.png";
+import { PromoCard } from "@/components/PromoCard";
 
 export default function Home() {
   return (
@@ -54,7 +57,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex">
+      <div className="flex gap-5">
         <div className="w-5/7">
           <div className="justify-between mb-4">
             <h2 className="text-base font-medium mb-2">Recent Activity</h2>
@@ -71,86 +74,29 @@ export default function Home() {
             </Tabs>
           </div>
           <div className="bg-white rounded-lg p-4 border">
-            <Table className="overflow-x-auto">
-              <thead>
-                <tr className="text-left font-semibold text-gray-500 border-b">
-                  <th className="py-3 px-4">ITEM</th>
-                  <th className="py-3 px-4">TYPE</th>
-                  <th className="py-3 px-4">LAST UPDATED</th>
-                  <th className="py-3 px-4">STATUS</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y">
-                <tr className="">
-                  <td className="py-4 px-4">User Onboarding flow</td>
-                  <td className="py-4 px-4 text-gray-600">Workflow</td>
-                  <td className="py-4 px-4 text-gray-600">2 hours ago</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
-                      Completed
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="py-4 px-4">New Product announcement</td>
-                  <td className="py-4 px-4 text-gray-600">Post</td>
-                  <td className="py-4 px-4 text-gray-600">Yesterday</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                      Draft
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="py-4 px-4">Q3 Performance</td>
-                  <td className="py-4 px-4 text-gray-600">Analytics</td>
-                  <td className="py-4 px-4 text-gray-600">3 days ago</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-teal-600 text-white text-xs">
-                      Generated
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="py-4 px-4">Summer photo Contest</td>
-                  <td className="py-4 px-4 text-gray-600">Contest</td>
-                  <td className="py-4 px-4 text-gray-600">1 week ago</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                      Active
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="py-4 px-4">Admin Panel customization</td>
-                  <td className="py-4 px-4 text-gray-600">Settings</td>
-                  <td className="py-4 px-4 text-gray-600">2 week ago</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                      Saved
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="py-4 px-4">Beta Tester</td>
-                  <td className="py-4 px-4 text-gray-600">User Group</td>
-                  <td className="py-4 px-4 text-gray-600">2 week ago</td>
-                  <td className="py-4 px-4">
-                    <span className="inline-flex items-center px-3 py-1 rounded-lg bg-gray-200 text-gray-700 text-xs">
-                      pending
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            <RecentActivityTable className="overflow-x-auto" />
           </div>
         </div>
-        <div className="w-2/7"></div>
+        {/* Analytics and content moderation card */}
+        <div className="w-2/7 hidden md:block">
+          <div className="flex flex-col gap-4">
+            <PromoCard
+              title="Enhanced Analytics Tools"
+              description="Dive deeper into your data with our new, intuitive analytics dashboards"
+              imgSrc={searchAnalysis}
+              imgAlt="Enhanced Analytics"
+              actionLabel="Explore Features"
+            />
+
+            <PromoCard
+              title="Streamlined Content Moderation"
+              description="Effortlessly manage user-generated content with new moderation queues"
+              imgSrc={contentModeration}
+              imgAlt="Streamlined Content Moderation"
+              actionLabel="Check Update"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
