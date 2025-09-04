@@ -57,6 +57,9 @@ const EditTagPage = lazy(() => import("./pages/Hashtags/EditTag"));
 const ModerationToolsPage = lazy(
   () => import("./pages/Moderation/ModerationTools")
 );
+const ContentReviewPage = lazy(
+  () => import("./pages/Moderation/ContentReview")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -100,6 +103,10 @@ export const routes: RouteObject[] = [
   {
     path: "/tools",
     element: <ModerationToolsPage />,
+  },
+  {
+    path: "/tools/content-review",
+    element: <ContentReviewPage />,
   },
   {
     path: "/hashtags/categories",
