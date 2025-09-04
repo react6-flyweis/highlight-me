@@ -4,7 +4,7 @@ export function ModerationNav() {
   return (
     <nav
       aria-label="breadcrumb"
-      className="mb-10 text-lg font-medium text-slate-500"
+      className="mb-10 text-lg text-muted-foreground"
     >
       <ol className="flex gap-2 items-center flex-wrap">
         <li>
@@ -20,7 +20,7 @@ export function ModerationNav() {
             Moderation Dashboard
           </NavLink>
         </li>
-        <li className="text-slate-400">/</li>
+        <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
             to="/tools/content-review"
@@ -33,7 +33,7 @@ export function ModerationNav() {
             Content Review
           </NavLink>
         </li>
-        <li className="text-slate-400">/</li>
+        <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
             to="/tools/reported"
@@ -46,7 +46,7 @@ export function ModerationNav() {
             Reported Content
           </NavLink>
         </li>
-        <li className="text-slate-400">/</li>
+        <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
             to="/tools/keywords"
@@ -59,7 +59,7 @@ export function ModerationNav() {
             Keywords
           </NavLink>
         </li>
-        <li className="text-slate-400">/</li>
+        <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
             to="/tools/settings"
@@ -72,7 +72,7 @@ export function ModerationNav() {
             Settings
           </NavLink>
         </li>
-        <li className="text-slate-400">/</li>
+        <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
             to="/tools/logs"
