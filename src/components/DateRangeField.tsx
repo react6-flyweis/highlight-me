@@ -10,13 +10,16 @@ import {
 } from "@/components/ui/popover";
 import { useEffect, useState } from "react";
 import type { DateRange } from "react-day-picker";
+import { cn } from "@/lib/utils";
 
 export function DateRangeField({
   value,
   onChange,
+  className,
 }: {
-  value: DateRange | undefined;
+  value?: DateRange | undefined;
   onChange: (range: DateRange | undefined) => void;
+  className?: string;
 }) {
   const [date, setDate] = useState<DateRange | undefined>(value);
 
@@ -35,7 +38,10 @@ export function DateRangeField({
           size="sm"
           variant="outline"
           data-empty={!date}
-          className="data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal"
+          className={cn(
+            "data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal",
+            className
+          )}
         >
           <CalendarIcon />
           {date && date.from && date.to ? (
