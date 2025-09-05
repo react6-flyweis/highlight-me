@@ -78,6 +78,9 @@ const AddNotificationPage = lazy(
   () => import("./pages/Moderation/AddNotification")
 );
 const AppSettingsPage = lazy(() => import("./pages/Settings/AppSettings"));
+const PostWindowSettingsPage = lazy(
+  () => import("./pages/Settings/PostWindowSettings")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -157,6 +160,10 @@ export const routes: RouteObject[] = [
   {
     path: "/settings",
     element: <AppSettingsPage />,
+  },
+  {
+    path: "/settings/post-window",
+    element: <PostWindowSettingsPage />,
   },
   {
     path: "/hashtags/categories",
