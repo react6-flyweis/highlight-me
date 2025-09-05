@@ -84,6 +84,9 @@ const PostWindowSettingsPage = lazy(
 const MediaUploadLimitsPage = lazy(
   () => import("./pages/Settings/MediaUploadLimits")
 );
+const CustomMessagesPage = lazy(
+  () => import("./pages/Settings/CustomMessages")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -171,6 +174,10 @@ export const routes: RouteObject[] = [
   {
     path: "/settings/media-limits",
     element: <MediaUploadLimitsPage />,
+  },
+  {
+    path: "/settings/messages",
+    element: <CustomMessagesPage />,
   },
   {
     path: "/hashtags/categories",
