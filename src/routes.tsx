@@ -73,6 +73,7 @@ const KeywordsPage = lazy(() => import("./pages/Moderation/Keywords"));
 const KeywordDetailPage = lazy(
   () => import("./pages/Moderation/KeywordDetail")
 );
+const LogsPage = lazy(() => import("./pages/Moderation/Logs"));
 const AddNotificationPage = lazy(
   () => import("./pages/Moderation/AddNotification")
 );
@@ -136,6 +137,10 @@ export const routes: RouteObject[] = [
   {
     path: "/tools/keywords",
     element: <KeywordsPage />,
+  },
+  {
+    path: "/tools/logs",
+    element: <LogsPage />,
   },
   {
     path: "/tools/keywords/:id",
