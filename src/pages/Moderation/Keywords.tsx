@@ -2,7 +2,7 @@ import { ModerationNav } from "@/components/Moderation/moderationNav";
 import { PageLayout } from "@/components/layouts/PageLayout";
 import { Plus, EditIcon, Trash2 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 type Keyword = {
   id: string;
@@ -113,10 +113,13 @@ export default function Keywords() {
       <ModerationNav />
 
       <div className="flex items-center justify-end mb-6">
-        <button className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white shadow-sm hover:opacity-95">
+        <Link
+          to="/tools/keywords/new"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white shadow-sm hover:opacity-95"
+        >
           <Plus className="w-4 h-4" />
           <span className="text-sm">Add New Notification</span>
-        </button>
+        </Link>
       </div>
 
       <div className="bg-card p-4">
