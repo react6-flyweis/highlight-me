@@ -76,6 +76,7 @@ const KeywordDetailPage = lazy(
 const AddNotificationPage = lazy(
   () => import("./pages/Moderation/AddNotification")
 );
+const AppSettingsPage = lazy(() => import("./pages/Settings/AppSettings"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -147,6 +148,10 @@ export const routes: RouteObject[] = [
   {
     path: "/tools/moderation-actions",
     element: <ModerationActionsPage />,
+  },
+  {
+    path: "/settings",
+    element: <AppSettingsPage />,
   },
   {
     path: "/hashtags/categories",
