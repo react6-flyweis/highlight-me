@@ -87,6 +87,7 @@ const MediaUploadLimitsPage = lazy(
 const CustomMessagesPage = lazy(
   () => import("./pages/Settings/CustomMessages")
 );
+const SecurityPage = lazy(() => import("./pages/Security/Security"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -178,6 +179,10 @@ export const routes: RouteObject[] = [
   {
     path: "/settings/messages",
     element: <CustomMessagesPage />,
+  },
+  {
+    path: "/security",
+    element: <SecurityPage />,
   },
   {
     path: "/hashtags/categories",
