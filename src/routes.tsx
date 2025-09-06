@@ -93,6 +93,9 @@ const IPWhitelistPage = lazy(() => import("./pages/Security/IPWhitelist"));
 const MultiFactorAuthenticationPage = lazy(
   () => import("./pages/Security/MultiFactorAuthentication")
 );
+const NotificationsPage = lazy(
+  () => import("./pages/Notifications/Notifications")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -112,6 +115,10 @@ export const routes: RouteObject[] = [
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/notifications",
+    element: <NotificationsPage />,
   },
   {
     path: "/hashtags/",
