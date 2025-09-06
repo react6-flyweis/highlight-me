@@ -99,6 +99,9 @@ const NotificationsPage = lazy(
 const AllNotificationsPage = lazy(
   () => import("./pages/Notifications/AllNotifications")
 );
+const CreateNotificationPage = lazy(
+  () => import("./pages/Notifications/CreateNotification")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -122,6 +125,10 @@ export const routes: RouteObject[] = [
   {
     path: "/notifications",
     element: <NotificationsPage />,
+  },
+  {
+    path: "/notifications/create",
+    element: <CreateNotificationPage />,
   },
   {
     path: "/notifications/all",
