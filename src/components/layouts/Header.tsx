@@ -36,9 +36,11 @@ export function Header() {
             </div>
           </div>
 
-          <Button variant="ghost" size="icon">
-            <BellIcon className="h-4 w-4 text-muted-foreground" />
-          </Button>
+          <Link to="/notifications">
+            <Button variant="ghost" size="icon">
+              <BellIcon className="h-4 w-4 text-muted-foreground" />
+            </Button>
+          </Link>
 
           {/* User Profile Section */}
           <nav className="flex items-center space-x-2">
