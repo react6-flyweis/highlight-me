@@ -20,7 +20,7 @@ export function SecurityNav() {
         <li className="text-muted-foreground">/</li>
         <li>
           <NavLink
-            to="/security/logs"
+            to="/security/audit-log"
             className={({ isActive }) =>
               isActive
                 ? "font-semibold text-primary hover:underline"
