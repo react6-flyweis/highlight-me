@@ -89,6 +89,7 @@ const CustomMessagesPage = lazy(
 );
 const SecurityPage = lazy(() => import("./pages/Security/Security"));
 const AuditLogPage = lazy(() => import("./pages/Security/AuditLog"));
+const IPWhitelistPage = lazy(() => import("./pages/Security/IPWhitelist"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -188,6 +189,10 @@ export const routes: RouteObject[] = [
   {
     path: "/security/audit-log",
     element: <AuditLogPage />,
+  },
+  {
+    path: "/security/ip-whitelist",
+    element: <IPWhitelistPage />,
   },
   {
     path: "/hashtags/categories",
