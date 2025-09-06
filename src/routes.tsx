@@ -88,6 +88,7 @@ const CustomMessagesPage = lazy(
   () => import("./pages/Settings/CustomMessages")
 );
 const SecurityPage = lazy(() => import("./pages/Security/Security"));
+const AuditLogPage = lazy(() => import("./pages/Security/AuditLog"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -183,6 +184,10 @@ export const routes: RouteObject[] = [
   {
     path: "/security",
     element: <SecurityPage />,
+  },
+  {
+    path: "/security/audit-log",
+    element: <AuditLogPage />,
   },
   {
     path: "/hashtags/categories",
