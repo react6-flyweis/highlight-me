@@ -7,16 +7,24 @@ export const StatCard: React.FC<{
   sub?: string;
   iconSrc?: string;
   iconAlt?: string;
+  icon?: React.ReactNode;
   to?: string;
-}> = ({ title, value, sub, iconSrc, iconAlt, to }) => {
+}> = ({ title, value, sub, iconSrc, iconAlt, icon, to }) => {
   const content = (
     <div className="relative bg-white dark:bg-slate-800 rounded-lg shadow-sm p-4">
-      {iconSrc && (
-        <img
-          src={iconSrc}
-          alt={iconAlt || title}
-          className="absolute top-3 right-3 w-6 h-6"
-        />
+      {/* prefer explicit icon (ReactNode) but fall back to legacy img iconSrc */}
+      {icon ? (
+        <div className="absolute top-3 right-3 w-6 h-6 flex items-center justify-center text-muted-foreground">
+          {icon}
+        </div>
+      ) : (
+        iconSrc && (
+          <img
+            src={iconSrc}
+            alt={iconAlt || title}
+            className="absolute top-3 right-3 w-6 h-6"
+          />
+        )
       )}
       <div className="flex flex-col justify-between h-full">
         <p className="text-sm text-muted-foreground m-0">{title}</p>
