@@ -33,8 +33,8 @@ const columns: ColumnDef<IPItem, unknown>[] = [
         <span
           className={
             v === "Active"
-              ? "inline-block px-2 py-1 text-xs font-medium rounded bg-emerald-100 text-emerald-700"
-              : "inline-block px-2 py-1 text-xs font-medium rounded bg-rose-100 text-rose-700"
+              ? "w-16 flex items-center justify-center  px-2 py-1 text-xs font-medium rounded bg-emerald-300 text-emerald-700"
+              : "w-16 flex items-center justify-center  px-2 py-1 text-xs font-medium rounded bg-rose-300 text-rose-700"
           }
         >
           {v}
