@@ -96,6 +96,9 @@ const MultiFactorAuthenticationPage = lazy(
 const NotificationsPage = lazy(
   () => import("./pages/Notifications/Notifications")
 );
+const AllNotificationsPage = lazy(
+  () => import("./pages/Notifications/AllNotifications")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -119,6 +122,10 @@ export const routes: RouteObject[] = [
   {
     path: "/notifications",
     element: <NotificationsPage />,
+  },
+  {
+    path: "/notifications/all",
+    element: <AllNotificationsPage />,
   },
   {
     path: "/hashtags/",
