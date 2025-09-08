@@ -108,6 +108,9 @@ const NotificationsAnalyticsPage = lazy(
   () => import("./pages/Notifications/Analytics")
 );
 const SupportPage = lazy(() => import("./pages/Support/Support"));
+const TopicsManagementPage = lazy(
+  () => import("./pages/Support/TopicsManagement")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -327,6 +330,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support",
     element: <SupportPage />,
+  },
+  {
+    path: "/support/requests/detail",
+    element: <SupportRequestDetailPage />,
   },
   {
     path: "*",
