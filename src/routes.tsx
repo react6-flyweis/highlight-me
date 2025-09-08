@@ -109,6 +109,9 @@ const NotificationsAnalyticsPage = lazy(
 );
 const SupportPage = lazy(() => import("./pages/Support/Support"));
 const FeedbackDetailPage = lazy(() => import("./pages/Support/FeedbackDetail"));
+const SupportRequestDetailPage = lazy(
+  () => import("./pages/Support/SupportRequestDetail")
+);
 const TopicsManagementPage = lazy(
   () => import("./pages/Support/TopicsManagement")
 );
@@ -335,6 +338,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/requests/detail",
     element: <SupportRequestDetailPage />,
+  },
+  {
+    path: "/support/faqs",
+    element: <TopicsManagementPage />,
   },
   {
     path: "/support/feedback",
