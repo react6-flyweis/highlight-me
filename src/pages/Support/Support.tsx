@@ -1,4 +1,6 @@
 import { StatCard } from "@/components/StatCard";
+import { PopularTopics } from "@/components/Support/PopularTopics";
+import { SupportTable } from "@/components/Support/SupportTable";
 
 export default function Support() {
   return (
@@ -30,6 +32,9 @@ export default function Support() {
           iconAlt="faqs"
         />
       </div>
+
+      <PopularTopics />
+      <SupportTable />
     </section>
   );
 }
