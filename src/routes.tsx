@@ -104,6 +104,9 @@ const CreateNotificationPage = lazy(
 );
 const TemplatePage = lazy(() => import("./pages/Notifications/Template"));
 const SchedulePage = lazy(() => import("./pages/Notifications/Schedule"));
+const NotificationsAnalyticsPage = lazy(
+  () => import("./pages/Notifications/Analytics")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -139,6 +142,10 @@ export const routes: RouteObject[] = [
   {
     path: "/notifications/schedule",
     element: <SchedulePage />,
+  },
+  {
+    path: "/notifications/analytics",
+    element: <NotificationsAnalyticsPage />,
   },
   {
     path: "/notifications/all",
