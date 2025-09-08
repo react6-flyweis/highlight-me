@@ -23,6 +23,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DataTablePagination } from "./Pagination";
+import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -31,6 +32,7 @@ interface DataTableProps<TData, TValue> {
     id: string;
     title: string;
   }[];
+  tWrapperClassName?: string;
   showToolbar?: boolean;
   showPagination?: boolean;
   pageSize?: number;
@@ -38,6 +40,7 @@ interface DataTableProps<TData, TValue> {
 
 function DataTableInner<TData, TValue>(
   {
+    tWrapperClassName,
     columns,
     data,
     showPagination = true,
@@ -78,7 +81,12 @@ function DataTableInner<TData, TValue>(
   const pageCount = table.getPageCount();
   return (
     <div className="space-y-4 ">
-      <div className="overflow-hidden  border shadow-sm rounded-md bg-white">
+      <div
+        className={cn(
+          "overflow-hidden  border shadow-sm rounded-md bg-white",
+          tWrapperClassName
+        )}
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
