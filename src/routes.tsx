@@ -107,6 +107,7 @@ const SchedulePage = lazy(() => import("./pages/Notifications/Schedule"));
 const NotificationsAnalyticsPage = lazy(
   () => import("./pages/Notifications/Analytics")
 );
+const SupportPage = lazy(() => import("./pages/Support/Support"));
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -322,6 +323,10 @@ export const routes: RouteObject[] = [
   {
     path: "/analytics/contests",
     element: <ContestAnalyticsPage />,
+  },
+  {
+    path: "/support",
+    element: <SupportPage />,
   },
   {
     path: "*",
