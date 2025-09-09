@@ -121,6 +121,9 @@ const SupportRequestDetailStandalonePage = lazy(
 const TopicsManagementPage = lazy(
   () => import("./pages/Support/TopicsManagement")
 );
+const UserFeedbackListPage = lazy(
+  () => import("./pages/Support/UserFeedbackList")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -352,6 +355,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/requests/detail/:id",
     element: <SupportRequestDetailStandalonePage />,
+  },
+  {
+    path: "/support/user-feedback",
+    element: <UserFeedbackListPage />,
   },
   {
     path: "/support/faqs",
