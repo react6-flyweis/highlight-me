@@ -112,6 +112,9 @@ const FeedbackDetailPage = lazy(() => import("./pages/Support/FeedbackDetail"));
 const SupportRequestDetailPage = lazy(
   () => import("./pages/Support/SupportRequestDetail")
 );
+const SupportRequestsPage = lazy(
+  () => import("./pages/Support/SupportRequests")
+);
 const TopicsManagementPage = lazy(
   () => import("./pages/Support/TopicsManagement")
 );
@@ -334,6 +337,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support",
     element: <SupportPage />,
+  },
+  {
+    path: "/support/requests",
+    element: <SupportRequestsPage />,
   },
   {
     path: "/support/requests/detail",
