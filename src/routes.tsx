@@ -124,6 +124,9 @@ const TopicsManagementPage = lazy(
 const UserFeedbackListPage = lazy(
   () => import("./pages/Support/UserFeedbackList")
 );
+const UserFeedbackDetailPage = lazy(
+  () => import("./pages/Support/UserFeedbackDetail")
+);
 
 export const authRoutes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
@@ -359,6 +362,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/user-feedback",
     element: <UserFeedbackListPage />,
+  },
+  {
+    path: "/support/user-feedback/:id",
+    element: <UserFeedbackDetailPage />,
   },
   {
     path: "/support/faqs",
