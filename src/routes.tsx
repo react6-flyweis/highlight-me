@@ -121,6 +121,7 @@ const SupportRequestDetailStandalonePage = lazy(
 const TopicsManagementPage = lazy(
   () => import("./pages/Support/TopicsManagement")
 );
+const CommonModalsPage = lazy(() => import("./pages/Support/CommonModals"));
 const UserFeedbackListPage = lazy(
   () => import("./pages/Support/UserFeedbackList")
 );
@@ -350,6 +351,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/requests",
     element: <SupportRequestsPage />,
+  },
+  {
+    path: "/support/topic/modals",
+    element: <CommonModalsPage />,
   },
   {
     path: "/support/requests/detail",
