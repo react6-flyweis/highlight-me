@@ -1,6 +1,46 @@
 import { StatCard } from "@/components/StatCard";
+import SupportControls from "@/components/Support/SupportControls";
+import {
+  TicketsTable,
+  type TicketsTableRef,
+} from "@/components/Support/TicketsTable";
+import { useRef, useState } from "react";
 
 export default function SupportRequests() {
+  const tableRef = useRef<TicketsTableRef | null>(null);
+  const [isAllSelected, setIsAllSelected] = useState(false);
+
+  const handleAssign = () => {
+    if (!tableRef.current) return;
+    const selected = tableRef.current
+      .getSelectedRowModel()
+      .flatRows.map((r) => r.original.id);
+    console.log("Assign selected:", selected);
+  };
+
+  const handleClose = () => {
+    if (!tableRef.current) return;
+    const selected = tableRef.current
+      .getSelectedRowModel()
+      .flatRows.map((r) => r.original.id);
+    console.log("Close selected:", selected);
+  };
+
+  const handleDelete = () => {
+    if (!tableRef.current) return;
+    const selected = tableRef.current
+      .getSelectedRowModel()
+      .flatRows.map((r) => r.original.id);
+    console.log("Delete selected:", selected);
+  };
+
+  const handleSelectAllChange = (v: boolean) => {
+    setIsAllSelected(v);
+    if (!tableRef.current) return;
+    // toggleAllRowsSelected expects boolean
+    tableRef.current.toggleAllRowsSelected(v);
+  };
+
   return (
     <section className="">
       <h1 className="text-xl font-medium my-6">Support Requests</h1>
@@ -38,6 +78,16 @@ export default function SupportRequests() {
           iconAlt="unassigned"
         />
       </div>
+
+      <SupportControls
+        onAssignSelected={handleAssign}
+        onCloseSelected={handleClose}
+        onDeleteSelected={handleDelete}
+        isAllSelected={isAllSelected}
+        onSelectAllChange={handleSelectAllChange}
+      />
+
+      <TicketsTable ref={tableRef} />
     </section>
   );
 }
