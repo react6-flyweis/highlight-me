@@ -130,6 +130,9 @@ const UserFeedbackDetailPage = lazy(
 );
 const FAQManagementPage = lazy(() => import("./pages/Support/FAQManagement"));
 const FAQDetailPage = lazy(() => import("./pages/Support/FAQDetail"));
+const FAQCategoriesPage = lazy(
+  () => import("./pages/Support/FAQCategoriesManagement")
+);
 const SupportAnalyticsPage = lazy(
   () => import("./pages/Support/SupportAnalytics")
 );
@@ -369,6 +372,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/faqs-categories",
     element: <FAQCategoriesPage />,
+  },
+  {
+    path: "/support/faqs/:id",
+    element: <FAQDetailPage />,
   },
   {
     path: "/support/requests/detail",
