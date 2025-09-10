@@ -20,7 +20,7 @@ const popularTopics = [
   {
     title: "FAQ / Help Topics Management",
     Icon: HelpCircle,
-    to: "/support/faqs",
+    to: "/support/faqs-topics",
     bg: "bg-orange-400",
   },
   {
@@ -56,13 +56,13 @@ const popularTopics = [
   {
     title: "Internal Notes System",
     Icon: File,
-    to: "/support/topic/notes",
+    to: "/support/notes",
     bg: "bg-teal-300",
   },
   {
     title: "Analytics Tab",
     Icon: BarChart2,
-    to: "/support/topic/analytics",
+    to: "/support/analytics",
     bg: "bg-lime-400",
   },
 ];

@@ -377,7 +377,7 @@ export const routes: RouteObject[] = [
     element: <UserFeedbackDetailPage />,
   },
   {
-    path: "/support/faqs",
+    path: "/support/faqs-topics",
     element: <TopicsManagementPage />,
   },
   {
