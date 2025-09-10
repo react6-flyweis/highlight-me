@@ -128,6 +128,9 @@ const UserFeedbackListPage = lazy(
 const UserFeedbackDetailPage = lazy(
   () => import("./pages/Support/UserFeedbackDetail")
 );
+const SupportAnalyticsPage = lazy(
+  () => import("./pages/Support/SupportAnalytics")
+);
 const InternalNotesPage = lazy(() => import("./pages/Support/InternalNotes"));
 
 export const authRoutes: RouteObject[] = [
@@ -384,6 +387,10 @@ export const routes: RouteObject[] = [
   {
     path: "/support/notes",
     element: <InternalNotesPage />,
+  },
+  {
+    path: "/support/analytics",
+    element: <SupportAnalyticsPage />,
   },
   {
     path: "*",
